@@ -48,6 +48,7 @@ services:
       - ../hyperdrive-gateway-ui:/app
     environment:
       NODE_ENV: development
+      SNOWPATH_PUBLIC_APP_NAME: 'Hyperdrive Gateway'
       SNOWPACK_PUBLIC_GATEWAY_HOST: local.computer:8080
 
 networks:
