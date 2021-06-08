@@ -33,7 +33,8 @@ services:
       APP_NAME: 'Hyperdrive Gateway'
       HYPERSPACE_STORAGE: /hyperspace_storage
       NODE_ENV: development
-      PORT: '8080'      
+      PORT: '8080'
+      PUBLIC_ASSETS_DIRECTORY: ''
       SSL_KEY: /dev-certs/local.computer.key
       SSL_CERT: /dev-certs/local.computer.crt
   ui:
