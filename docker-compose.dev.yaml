@@ -30,7 +30,6 @@ services:
       - ./dev-certs:/dev-certs
       - hyperspace_storage:/hyperspace_storage
     environment:
-      APP_NAME: 'Hyperdrive Gateway'
       HYPERSPACE_STORAGE: /hyperspace_storage
       NODE_ENV: development
       PORT: '8080'
