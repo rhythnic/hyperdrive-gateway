@@ -1,0 +1,27 @@
+# build web client
+FROM node:16-slim AS client
+
+WORKDIR /app
+
+COPY ./hyperdrive-gateway-ui/package*.json ./
+RUN npm install
+
+COPY ./hyperdrive-gateway-ui ./
+
+RUN npm run build
+
+# build server
+FROM node:16-slim
+
+WORKDIR /app
+
+COPY ./hyperdrive-gateway/package*.json ./
+
+RUN npm install --production
+
+COPY ./hyperdrive-gateway ./
+COPY --from=client /app/public .
+
+EXPOSE 443
+
+CMD ["node", "index.js"]

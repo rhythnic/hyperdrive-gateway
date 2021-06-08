@@ -1,0 +1,20 @@
+{
+  "name": "hyperdrive-gateway-integration",
+  "version": "0.0.1-rc.2",
+  "description": "A repo for integrating hyperdrive-gateway repos for dev, testing, ci/cd",
+  "type": "module",
+  "scripts": {
+    "dev": "docker-compose -f docker-compose.dev.yaml up --build"
+  },
+  "keywords": [],
+  "author": "Nick Baroni (@rhythnic)",
+  "license": "MIT",
+  "dependencies": {
+    "hyperdrive": "^10.20.0",
+    "hyperspace": "^3.19.0",
+    "random-access-memory": "^3.1.2"
+  },
+  "devDependencies": {
+    "standard": "^16.0.3"
+  }
+}
