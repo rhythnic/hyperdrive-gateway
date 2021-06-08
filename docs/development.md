@@ -11,8 +11,9 @@ git clone git@github.com:rhythnic/hyperdrive-gateway.git
 git clone git@github.com:rhythnic/hyperdrive-gateway-server.git
 git clone git@github.com:rhythnic/hyperdrive-gateway-ui.git
 
-ln -s ./hyperdrive-gateway-server ./hyperdrive-gateway/hyperdrive-gateway-server
-ln -s ./hyperdrive-gateway-ui ./hyperdrive-gateway/hyperdrive-gateway-ui
+cd hyperdrive-gateway
+ln -s ../hyperdrive-gateway-server hyperdrive-gateway-server
+ln -s ../hyperdrive-gateway-ui hyperdrive-gateway-ui
 ```
 
 ### SSL
@@ -20,7 +21,7 @@ The SSL setup relies on a public domain `local.computer` that supports wildcards
 There's no need to edit your hosts file.
 
 ```
-cd hyperdrive-gateway/dev-certs
+cd dev-certs
 ./generate
 cd ..
 ```

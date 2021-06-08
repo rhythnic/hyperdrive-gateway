@@ -26,7 +26,7 @@ services:
       - "8080:8080"
     volumes:
       - /app/node_modules
-      - ../hyperdrive-gateway:/app
+      - ./hyperdrive-gateway-server:/app
       - ./dev-certs:/dev-certs
       - hyperspace_storage:/hyperspace_storage
     environment:
@@ -46,7 +46,7 @@ services:
       - "8081:8081"
     volumes:
       - /app/node_modules
-      - ../hyperdrive-gateway-ui:/app
+      - ./hyperdrive-gateway-ui:/app
       - ./dev-certs:/dev-certs
     environment:
       NODE_ENV: development

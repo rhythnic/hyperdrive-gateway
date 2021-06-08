@@ -33,11 +33,11 @@ async function main () {
 
   const client = new HyperspaceClient({ host: HOST_ID })
 
-  const webappDependency = fs.readFileSync('/app/seeder/webapp-dependency/index.js', 'utf-8')
+  const webappDependency = fs.readFileSync('/app/dev-seeder/webapp-dependency/index.js', 'utf-8')
   const webappDependencyDrive = await buildDrive(client, '/index.js', webappDependency)
   const webappDependencyKey = webappDependencyDrive.key.toString('hex')
   const webapp = fs
-    .readFileSync('/app/seeder/webapp/index.html', 'utf-8')
+    .readFileSync('/app/dev-seeder/webapp/index.html', 'utf-8')
     .replace('{{dependencyKey}}', webappDependencyKey)
   const webappDrive = await buildDrive(client, '/index.html', webapp)
   const webappKey = webappDrive.key.toString('hex')
