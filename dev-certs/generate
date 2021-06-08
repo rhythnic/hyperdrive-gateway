@@ -1,0 +1,44 @@
+#! /bin/bash
+
+# https://oliverlundquist.com/2018/02/26/setup-ssl-and-https-in-your-local-environment.html
+# https://gist.github.com/tinogomes/c425aa2a56d289f16a1f4fcb8a65ea65
+
+openssl req \
+    -newkey rsa:2048 \
+    -x509 \
+    -nodes \
+    -keyout ./local.computer.key \
+    -new \
+    -out ./local.computer.crt \
+    -reqexts SAN \
+    -extensions SAN \
+    -config <(cat /System/Library/OpenSSL/openssl.cnf \
+        <(printf '
+[req]
+default_bits = 2048
+prompt = no
+default_md = sha256
+x509_extensions = v3_req
+distinguished_name = dn
+
+[dn]
+C = JP
+ST = Tokyo
+L = Tokyo
+O = Local Computer Inc.
+OU = Technology Group
+emailAddress = hello@my-domain.jp
+CN = local.computer
+
+[v3_req]
+subjectAltName = @alt_names
+
+[SAN]
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = *.local.computer
+DNS.2 = local.computer
+')) \
+    -sha256 \
+    -days 3650

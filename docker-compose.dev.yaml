@@ -28,13 +28,14 @@ services:
       - /app/node_modules
       - ../hyperdrive-gateway:/app
       - hyperspace_storage:/hyperspace_storage
+      - ./dev-certs:/dev-certs
     environment:
       APP_NAME: 'Hyperdrive Gateway'
       HYPERSPACE_STORAGE: /hyperspace_storage
       NODE_ENV: development
       PORT: '443'      
-      SSL_KEY: /app/dev-certs/local-computer.key
-      SSL_CERT: /app/dev-certs/local-computer.crt
+      SSL_KEY: /dev-certs/local.computer.key
+      SSL_CERT: /dev-certs/local.computer.crt
   ui:
     build:
       context: ./hyperdrive-gateway-ui
@@ -46,6 +47,7 @@ services:
     volumes:
       - /app/node_modules
       - ../hyperdrive-gateway-ui:/app
+      - ./dev-certs:/dev-certs
     environment:
       NODE_ENV: development
       SNOWPATH_PUBLIC_APP_NAME: 'Hyperdrive Gateway'
