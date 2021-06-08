@@ -47,6 +47,6 @@ The docker image is all that's needed to run an instance of Hyperdrive Gateway a
 [hyperdrive-gateway-server]: https://github.com/rhythnic/hyperdrive-gateway-server
 [hyperdrive-gateway-ui]: https://github.com/rhythnic/hyperdrive-gateway-ui
 [hyperdrive-gateway-docker-hub]: https://hub.docker.com/repository/docker/rhythnic/hyperdrive-gateway
-[development-doc]: ./docs/develepment.md
+[development-doc]: ./docs/development.md
 [hypercore-protocol]: https://hypercore-protocol.org/
 [mdn-import]: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
