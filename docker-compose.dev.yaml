@@ -13,7 +13,7 @@ services:
     depends_on:
       - integration_base
     networks:
-      - hyperspace_gateway
+      - hyperdrive_gateway
   gateway:
     build:
       context: ./hyperdrive-gateway-server
@@ -21,16 +21,16 @@ services:
     image: hyperdrive_gateway_server:dev
     container_name: gateway_server
     networks:
-      - hyperspace_gateway
+      - hyperdrive_gateway
     ports:
       - "8080:8080"
     volumes:
       - /app/node_modules
       - ./hyperdrive-gateway-server:/app
       - ./dev-certs:/dev-certs
-      - hyperspace_storage:/hyperspace_storage
+      - core_storage:/core_storage
     environment:
-      HYPERSPACE_STORAGE: /hyperspace_storage
+      CORE_STORAGE: /core_storage
       NODE_ENV: development
       PORT: '8080'
       PUBLIC_ASSETS_DIRECTORY: ''
@@ -54,9 +54,9 @@ services:
       SNOWPACK_PUBLIC_GATEWAY_HOST: local.computer:8080
 
 networks:
-  hyperspace_gateway:
-    name: hyperspace_gateway_net
+  hyperdrive_gateway:
+    name: hyperdrive_gateway_net
 
 volumes:
-  hyperspace_storage:
+  core_storage:
 
